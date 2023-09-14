@@ -14,7 +14,11 @@ export const createComment = async (req, res) => {
         const newComment = new Comment({
             comment,
             firstName: user.firstName,
-            lastName: user.lastName
+            lastName: user.lastName,
+            occupation: user.occupation,
+            location: user.location,
+            age: user.age,
+            email: user.email
         });
 
         await newComment.save();

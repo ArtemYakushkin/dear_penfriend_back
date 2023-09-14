@@ -7,6 +7,8 @@ import authRoutes from './routes/auth.js';
 import postRoutes from './routes/post.js';
 import userRoutes from './routes/user.js';
 import commentRoute from './routes/comments.js'
+import Post from './models/Post.js';
+import { posts } from './db/postsList.js';
 
 const app = express();
 dotenv.config();
@@ -31,8 +33,8 @@ app.use('/comments', commentRoute);
 async function start() {
     try {
         await mongoose.connect(MONGO_URL);
-
         app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
+        // Post.insertMany(posts);
     } catch (error) {
         console.log(error)
     }

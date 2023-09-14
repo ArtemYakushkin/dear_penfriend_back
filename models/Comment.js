@@ -6,6 +6,10 @@ const CommentSchema = new mongoose.Schema(
         author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         firstName: { type: String },
         lastName: { type: String },
+        occupation: { type: String },
+        email: { type: String },
+        age: { type: String },
+        location: { type: String }
     },
     { timestamps: true },
 );

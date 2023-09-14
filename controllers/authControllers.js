@@ -1,13 +1,14 @@
-import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import User from '../models/User.js';
 
-// Register user
+// // Register user
 export const register = async (req, res) => {
     try {
-        const { firstName, lastName, email, password, picturePath, friends, location, occupation, age } = req.body;
+        // const { firstName, lastName, email, password, picturePath, friends, location, occupation, age } = req.body;
+        const { firstName, lastName, email, password, location, occupation, age } = req.body;
 
         const isUsed = await User.findOne({ email });
 
@@ -15,20 +16,20 @@ export const register = async (req, res) => {
             return res.json({ message: 'This user is already registered.' });
         }
 
-        const salt = bcrypt.genSaltSync(10);
+        const salt = bcrypt.genSaltSync(10); 
         const hash = bcrypt.hashSync(password, salt);
 
-        let fileName = Date.now().toString() + req.files.image.name;
-        const __dirname = dirname(fileURLToPath(import.meta.url));
-        req.files.image.mv(path.join(__dirname, '..', 'uploads', fileName));
+        // let fileName = Date.now().toString() + req.files.image.name;
+        // const __dirname = dirname(fileURLToPath(import.meta.url));
+        // req.files.image.mv(path.join(__dirname, '..', 'uploads', fileName));
 
         const newUser = new User({
             firstName,
             lastName,
             email,
             password: hash,
-            picturePath: fileName,
-            friends,
+            // picturePath: fileName,
+            // friends,
             location,
             occupation,
             age,

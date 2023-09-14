@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createPost, getAll, getById, getMyPosts, removePost, updatePost, getPostComments, likePost } from '../controllers/postsControllers.js';
+import { createPost, getAll, getById, getMyPosts, removePost, updatePost, getPostComments } from '../controllers/postsControllers.js';
 import { checkAuth } from '../utils/checkAuth.js';
 const router = new Router();
 
@@ -30,10 +30,5 @@ router.delete('/:id', checkAuth, removePost);
 // Get Post Comments
 // http://localhost:3002/posts/comments/:id
 router.get('/comments/:id', getPostComments);
-
-// Get Post Like
-// http://localhost:3002/posts/:id/like
-router.patch('/:id/like', checkAuth, likePost);
-
 
 export default router;
