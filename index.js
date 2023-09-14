@@ -34,7 +34,7 @@ async function start() {
     try {
         await mongoose.connect(MONGO_URL);
         app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
-        // Post.insertMany(posts);
+        Post.insertMany(posts);
     } catch (error) {
         console.log(error)
     }

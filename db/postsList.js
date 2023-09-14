@@ -14,4 +14,17 @@ export const posts = [
         comments: [],
         picturePath: "main-user.jpg",
     },
+        {
+        _id: new mongoose.Types.ObjectId(),
+        firstName: "Anna",
+        lastName: "Yakushkina",
+        occupation: "Teacher",
+        title: "Iron Man",
+        text: "My favorite hero of the Marvel universe is Iron Man. What's your favorite movie character?",
+        imgUrl: "post-test.jpg",
+        views: 0,
+        likes: new Map([]),
+        comments: [],
+        picturePath: "main-user.jpg",
+    },
 ];
